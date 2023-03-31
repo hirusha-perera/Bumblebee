@@ -38,6 +38,8 @@ public class AdmintRepositoryTest {
 		
 		assertThat(existAdmin.getAdmin_email()).isEqualTo(admin.getAdmin_email());
 		
+		
+		
 	}
 	
 
