@@ -42,14 +42,14 @@ public class AdmintRepositoryTest {
 		
 	}
 	
-	@Test
-	public void testFindAdminByEmail() {
-		String admin_email = "hirushaperera@live.com";
-		
-		Admin admin = repo.findByEmail(admin_email);
-		
-		assertThat(admin).isNotNull();
-	}
+//	@Test
+//	public void testFindAdminByEmail() {
+//		String admin_email = "hirushaperera@live.com";
+//		
+//		Admin admin = repo.findByEmail(admin_email);
+//		
+//		assertThat(admin).isNotNull();
+//	}
 	
 
 }

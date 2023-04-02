@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.Admin;
+//import com.example.demo.Admin;
 import com.example.demo.Customer;
 import com.example.demo.CustomerServices;
 
@@ -27,13 +27,14 @@ public class CustomerController {
 	@Autowired
     private CustomerServices services;
 
-	@ExceptionHandler
+	@ExceptionHandler(Exception.class)
 	@GetMapping("/customer")
 	public List<Customer> list() {
+		
 		return services.listAll();
 	}
 	
-	@GetMapping("/admin/{admin_id}")
+	@GetMapping("/customer/{customer_id}")
 	public ResponseEntity<Customer> get(@PathVariable Integer customer_id) {
 		try {
 		Customer customer = services.get(customer_id);

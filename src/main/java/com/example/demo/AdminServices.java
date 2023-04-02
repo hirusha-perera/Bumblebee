@@ -3,10 +3,16 @@ package com.example.demo;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-//import com.example.demo.Admin;
+
+//import config.AdminSecurityConfig;
+
 @Service
 public class AdminServices {
+	
+
+	
 	
 	@Autowired
 	private AdminRepository repos;
@@ -26,5 +32,8 @@ public class AdminServices {
 	public void delete(Integer admin_id) {
 		repos.deleteById(admin_id);
 	}
+	
+	
+	}
 
-}
+
