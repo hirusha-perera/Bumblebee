@@ -1,42 +1,57 @@
 package com.example.demo;
 
 import java.sql.Date;
-//import java.time.LocalDateTime;
 
-//import javax.persistence.Column;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "customers")
 public class Customer {
-	
+	@Column(name = "customer_id")
 	private Integer customer_id;
-	private String customer_fisrtName;
+	
+	@Column(name = "customer_firstName")
+	private String customer_firstName;
+	
+	@Column(name = "customer_lastName")
 	private String customer_lastName;
 	
-	
+	@Column(name = "customer_nic")
 	private String customer_nic;
 	
+	@Column(name = "customer_dob")
 	private Date customer_dob;
+	
+	@Column(name = "customer_email")
 	private String customer_email;
+	
+	@Column(name = "customer_telephone")
 	private String customer_telephone;
+	
+	@Column(name = "customer_address")
 	private String customer_address;
+	
+	@Column(name = "customer_state")
 	private String customer_state;
+	
+	@Column(name = "customer_password")
 	private String customer_password;
-	//private LocalDateTime customer_registeredDate;
 	
 	public Customer() {
-
+		
 	}
 
-	public Customer(Integer customer_id, String customer_fisrtName, String customer_lastName, String customer_nic,
+	public Customer(Integer customer_id, String customer_firstName, String customer_lastName, String customer_nic,
 			Date customer_dob, String customer_email, String customer_telephone, String customer_address,
 			String customer_state, String customer_password) {
 		super();
 		this.customer_id = customer_id;
-		this.customer_fisrtName = customer_fisrtName;
+		this.customer_firstName = customer_firstName;
 		this.customer_lastName = customer_lastName;
 		this.customer_nic = customer_nic;
 		this.customer_dob = customer_dob;
@@ -45,8 +60,8 @@ public class Customer {
 		this.customer_address = customer_address;
 		this.customer_state = customer_state;
 		this.customer_password = customer_password;
-		//this.customer_registeredDate = customer_registeredDate;
 	}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getCustomer_id() {
@@ -57,12 +72,14 @@ public class Customer {
 		this.customer_id = customer_id;
 	}
 
-	public String getCustomer_fisrtName() {
-		return customer_fisrtName;
+	
+
+	public String getCustomer_firstName() {
+		return customer_firstName;
 	}
 
-	public void setCustomer_fisrtName(String customer_fisrtName) {
-		this.customer_fisrtName = customer_fisrtName;
+	public void setCustomer_firstName(String customer_firstName) {
+		this.customer_firstName = customer_firstName;
 	}
 
 	public String getCustomer_lastName() {
@@ -128,15 +145,6 @@ public class Customer {
 	public void setCustomer_password(String customer_password) {
 		this.customer_password = customer_password;
 	}
-
-//	public LocalDateTime getCustomer_registeredDate() {
-//		return customer_registeredDate;
-//	}
-//
-//	public void setCustomer_registeredDate(LocalDateTime customer_registeredDate) {
-//		this.customer_registeredDate = customer_registeredDate;
-//	}
-
 	
 	
 	

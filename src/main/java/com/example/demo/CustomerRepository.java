@@ -1,11 +1,14 @@
 package com.example.demo;
 
-//import java.util.Optional;
-//import com.example.demo.Customer;
-import org.springframework.data.jpa.repository.JpaRepository;
+//import java.util.List;
 
-public interface CustomerRepository extends JpaRepository<Customer, Integer> {
+import org.springframework.data.jpa.repository.JpaRepository;
+//import org.springframework.data.jpa.repository.Query;
+
+public interface CustomerRepository extends JpaRepository<Customer, Integer>{
+	//Customer findByCustomerId(int customer_id);
 	
-	//Optional<Customer> findByCustomer_email(String customer_email);
+//    @Query("SELECT customer_state, COUNT(*) FROM customers GROUP BY customer_state")
+//    List<Object[]> getCountByCustomerState();
 
 }
