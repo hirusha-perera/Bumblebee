@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "customers")
@@ -16,30 +20,40 @@ public class Customer {
 	private Integer customer_id;
 	
 	@Column(name = "customer_firstName")
+	@NotNull(message = "First Name cannot be blank")
 	private String customer_firstName;
 	
 	@Column(name = "customer_lastName")
+	@NotNull(message = "Last First Name cannot be blank")
 	private String customer_lastName;
 	
 	@Column(name = "customer_nic")
+	@NotNull(message = "NIC number cannot be blank")
+    @Size(min = 10, max = 12, message = "NIC number should be between 10 and 12 characters")
 	private String customer_nic;
 	
 	@Column(name = "customer_dob")
+	@NotNull(message = "Date of birth is required")
 	private Date customer_dob;
 	
 	@Column(name = "customer_email")
+	@Email(message = "Invalid email address")
 	private String customer_email;
 	
 	@Column(name = "customer_telephone")
+	@NotNull(message = "Telephone Number cannot be blank")
 	private String customer_telephone;
 	
 	@Column(name = "customer_address")
+	@NotNull(message = "Address cannot be blank")
 	private String customer_address;
 	
 	@Column(name = "customer_state")
+	@NotNull(message = "State cannot be blank")
 	private String customer_state;
 	
 	@Column(name = "customer_password")
+	@NotNull(message = "Please set a  password")
 	private String customer_password;
 	
 	public Customer() {

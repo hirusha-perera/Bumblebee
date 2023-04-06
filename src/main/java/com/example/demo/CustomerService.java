@@ -48,6 +48,8 @@ public class CustomerService {
 //    public List<Object[]> getCountByCustomerState() {
 //        return customerRepository.getCountByCustomerState();
 //    }
-    
+    public long getTotalCustomerCount() {
+        return customerRepository.count();
+    }
     
 }

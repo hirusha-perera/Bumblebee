@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +16,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.Customer;
 import com.example.demo.Purchase;
 import com.example.demo.PurchaseServices;
 
 @RestController
+@CrossOrigin("http://localhost:3000/")
 public class PurchaseController {
 	
 	@Autowired
@@ -40,7 +43,7 @@ public class PurchaseController {
 			}
 		}
 		
-		@GetMapping("/purchases/{purchased_customer}")
+		@GetMapping("/purchasespc/{purchased_customer}")
 		public ResponseEntity<Purchase> getbycus(@PathVariable Integer purchased_customer) {
 			try {
 			Purchase purchase = purchaseService.get(purchased_customer);
@@ -49,6 +52,11 @@ public class PurchaseController {
 				return new ResponseEntity<Purchase>(HttpStatus.NOT_FOUND);
 			}
 		}
+		
+		
+//		  public Customer get(Integer customer_id) {
+//		        return customerRepository.findById(customer_id).get();
+//		    }
 		
 		@PostMapping("/purchases")
 		public void add(@RequestBody Purchase purchase) {
