@@ -8,9 +8,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class PurchaseServices {
 	
+	private static PurchaseServices instance = null;
 
 	@Autowired
 	private PurchaseRepository purchaseRepository;
+	
+	private PurchaseServices() {
+	       
+    }
+    
+    public static PurchaseServices getInstance() {
+        if (instance == null) {
+            instance = new PurchaseServices();
+        }
+        return instance;
+    }
 	
 	public List<Purchase> listAll(){
 		return purchaseRepository.findAll();

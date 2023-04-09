@@ -13,9 +13,22 @@ public class AdminServices {
 	
 
 	
+private static AdminServices instance = null;
+    
+    @Autowired
+    private AdminRepository repos;
+
+    private AdminServices() {
+       
+    }
+    
+    public static AdminServices getInstance() {
+        if (instance == null) {
+            instance = new AdminServices();
+        }
+        return instance;
+    }
 	
-	@Autowired
-	private AdminRepository repos;
 	
 	public List<Admin> listAll(){
 		return repos.findAll();

@@ -8,8 +8,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductServices {
 	
+	private static ProductServices instance = null;
+	
 	@Autowired
     private ProductRepository productRepository;
+	
+	private ProductServices() {
+	       
+    }
+    
+    public static ProductServices getInstance() {
+        if (instance == null) {
+            instance = new ProductServices();
+        }
+        return instance;
+    }
+	
 
     public List<Product> getAllProducts() {
         return productRepository.findAll();

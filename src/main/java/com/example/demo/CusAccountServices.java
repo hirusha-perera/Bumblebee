@@ -8,9 +8,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class CusAccountServices {
 	
+	private static CusAccountServices instance = null;
 	
 	@Autowired
 	private CusAccountRepository cusAccountRepository;
+	
+	private CusAccountServices() {
+	       
+    }
+    
+    public static CusAccountServices getInstance() {
+        if (instance == null) {
+            instance = new CusAccountServices();
+        }
+        return instance;
+    }
 	
 	public List<CusAccount> listAll(){
 		return cusAccountRepository.findAll();

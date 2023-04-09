@@ -9,9 +9,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class PaymentsServices {
 	
+	private static PaymentsServices instance = null;
 	
 	@Autowired
 	private PaymentsRepository paymentRepository;
+	
+	  private PaymentsServices() {
+	       
+	    }
+	    
+	    public static PaymentsServices getInstance() {
+	        if (instance == null) {
+	            instance = new PaymentsServices();
+	        }
+	        return instance;
+	    }
 	
 	public List<Payments> listAll(){
 		return paymentRepository.findAll();
